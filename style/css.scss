@@ -1,0 +1,169 @@
+/** Header */ 
+
+header 
+{
+    text-align: center;
+
+    svg 
+    {
+        margin-top: 1em;
+    }
+    h1 
+    {
+        color: #D04F4F;
+    }
+}
+
+#searchBar, #inputSearchBar
+{
+    background-color: #E7E7E7;
+    border: none;
+}
+#basic-text1
+{
+    border: none;
+    background-color: #E7E7E7;
+}
+
+/** Button Filtre */
+
+.btn
+ {
+     width: 200px;
+     overflow: hidden;
+     margin: 0.5em;
+     margin-left: 0;
+     padding: 1em;
+     color: white;
+     font-size: 18px;
+     line-height: 22px;
+     border-radius: 5px;
+ }
+
+#filtre
+{
+    margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+
+    .ingredients, .ustensils, .appareils
+    {
+        display: none;
+    }
+
+}
+
+ .fa-chevron-down
+ {
+     padding-left: 1em;
+     font-size: 15px;
+     
+ }
+
+ #btnIng
+ {
+    background-color: #3282F7;
+    input{
+        background-color: #3282F7;
+        &::placeholder
+        {
+            color: white;
+        }
+    }
+ }
+ #btnAppareil
+ {
+    background-color: #68D9A4;
+    input 
+    {
+        background-color: #68D9A4;
+        &::placeholder
+        {
+            color: white;
+        }
+    }
+ }   
+ #btnUst
+ {
+    background-color: #ED6454;
+    input {
+        background-color: #ED6454;
+        &::placeholder
+        {
+            color: white;
+        }
+    }
+ }
+
+ input {
+     border: none;
+     color : white;
+     width: 100px;
+ }
+
+/** Main Css */
+
+#cardModel
+{
+    display: none;
+}
+#mainContent
+{
+    justify-content: center;
+}
+.cardClone
+{
+    height: 364px;
+    overflow: hidden;
+    padding: 1em;
+    border-radius: 5px;
+}
+.greyContent
+{
+    background-color: #C7BEBE;
+    height: 180px;
+    border-radius: 5px;
+}
+.title
+{
+    display: flex;
+    justify-content: space-between;
+}
+.timeRecipes
+{
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 0.5em;
+}
+.time 
+{
+    display: flex;
+}
+.oclock
+{
+    margin-top: 0.3em;
+}
+.titleRecipies
+{
+    font-size: 18px;
+}
+.listIngredients
+{
+    font-size: 12px;
+    font-weight: 700;
+    list-style-type: none;
+    padding-right : 1em;
+    margin: 0;
+    min-width: 50%;
+
+}
+.pRecipes
+{
+    font-size: 12px;
+    padding-right: 1em;
+}
+.recipesContent
+{
+    display: flex;
+    justify-content: space-between;
+}

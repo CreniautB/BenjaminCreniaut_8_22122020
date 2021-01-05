@@ -1,0 +1,208 @@
+/** Header */
+header {
+  text-align: center;
+}
+
+header svg {
+  margin-top: 1em;
+}
+
+header h1 {
+  color: #D04F4F;
+}
+
+#searchBar, #inputSearchBar {
+  background-color: #E7E7E7;
+  border: none;
+}
+
+#basic-text1 {
+  border: none;
+  background-color: #E7E7E7;
+}
+
+/** Button Filtre */
+.btn {
+  width: 200px;
+  overflow: hidden;
+  margin: 0.5em;
+  margin-left: 0;
+  padding: 1em;
+  color: white;
+  font-size: 18px;
+  line-height: 22px;
+  border-radius: 5px;
+}
+
+#filtre {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#filtre .ingredients, #filtre .ustensils, #filtre .appareils {
+  display: none;
+}
+
+.fa-chevron-down {
+  padding-left: 1em;
+  font-size: 15px;
+}
+
+#btnIng {
+  background-color: #3282F7;
+}
+
+#btnIng input {
+  background-color: #3282F7;
+}
+
+#btnIng input::-webkit-input-placeholder {
+  color: white;
+}
+
+#btnIng input:-ms-input-placeholder {
+  color: white;
+}
+
+#btnIng input::-ms-input-placeholder {
+  color: white;
+}
+
+#btnIng input::placeholder {
+  color: white;
+}
+
+#btnAppareil {
+  background-color: #68D9A4;
+}
+
+#btnAppareil input {
+  background-color: #68D9A4;
+}
+
+#btnAppareil input::-webkit-input-placeholder {
+  color: white;
+}
+
+#btnAppareil input:-ms-input-placeholder {
+  color: white;
+}
+
+#btnAppareil input::-ms-input-placeholder {
+  color: white;
+}
+
+#btnAppareil input::placeholder {
+  color: white;
+}
+
+#btnUst {
+  background-color: #ED6454;
+}
+
+#btnUst input {
+  background-color: #ED6454;
+}
+
+#btnUst input::-webkit-input-placeholder {
+  color: white;
+}
+
+#btnUst input:-ms-input-placeholder {
+  color: white;
+}
+
+#btnUst input::-ms-input-placeholder {
+  color: white;
+}
+
+#btnUst input::placeholder {
+  color: white;
+}
+
+input {
+  border: none;
+  color: white;
+  width: 100px;
+}
+
+/** Main Css */
+#cardModel {
+  display: none;
+}
+
+#mainContent {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cardClone {
+  height: 364px;
+  overflow: hidden;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.greyContent {
+  background-color: #C7BEBE;
+  height: 180px;
+  border-radius: 5px;
+}
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.timeRecipes {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 0.5em;
+}
+
+.time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.oclock {
+  margin-top: 0.3em;
+}
+
+.titleRecipies {
+  font-size: 18px;
+}
+
+.listIngredients {
+  font-size: 12px;
+  font-weight: 700;
+  list-style-type: none;
+  padding-right: 1em;
+  margin: 0;
+  min-width: 50%;
+}
+
+.pRecipes {
+  font-size: 12px;
+  padding-right: 1em;
+}
+
+.recipesContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=css.css.map */
