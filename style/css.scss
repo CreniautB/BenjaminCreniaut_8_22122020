@@ -38,19 +38,13 @@ header
      font-size: 18px;
      line-height: 22px;
      border-radius: 5px;
- }
+     margin-bottom: 0; }
 
 #filtre
 {
     margin-top: 1em;
     display: flex;
     flex-wrap: wrap;
-
-    .ingredients, .ustensils, .appareils
-    {
-        display: none;
-    }
-
 }
 
  .fa-chevron-down
@@ -101,6 +95,49 @@ header
      width: 100px;
  }
 
+ .ingredients, .ustensils, .appareils
+ {
+     display: none;
+     width: 200px;
+     margin: 0.5em;
+     color: white;
+ }
+
+ #listingIngredients, #listingAppareil, #listingUst
+ {
+     display: flex;
+     flex-wrap: wrap;
+     border-radius: 5px;
+     margin: 0;
+ }
+
+ #listingIngredients
+ {
+     background-color: #3282F7;
+
+ }
+
+ #listingAppareil
+ {
+     background-color: #68D9A4;
+ }
+
+ #listingUst
+ {
+     background-color: #D04F4F;
+ }
+
+ .tag
+ {
+    list-style: none;
+
+    img 
+    {
+        width: 15px;
+        color: #3282F7;
+        margin-left: 1em;
+    }
+ }  
 /** Main Css */
 
 #cardModel
@@ -161,6 +198,8 @@ header
 {
     font-size: 12px;
     padding-right: 1em;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .recipesContent
 {

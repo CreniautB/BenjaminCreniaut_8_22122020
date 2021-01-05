@@ -24,7 +24,8 @@ document.querySelector("#arrowIng").addEventListener("click", function(e)
    e.preventDefault();
    if ( boolarrowIng == false)
    {     document.querySelectorAll(".ingredients").forEach(ingArrows => {
-         ingArrows.style.display = "block";})
+         ingArrows.style.display = "block";
+      })
          boolarrowIng = true}
    else
    {
@@ -70,9 +71,6 @@ document.querySelector("#arrowUst").addEventListener("click", function(e)
       boolarrowUst = false
    })}})
 
-
-
-
 /** Création Dictionnaire Appareils */
 let appArray = []
 recipes.forEach(element => {     
@@ -108,6 +106,6 @@ document.querySelector("#arrowApp").addEventListener("click", function(e)
 
    /** Appel des fichier Javascript */
 var search = document.createElement("script");
-search.src = "js/searchAlgo.js" ;
+search.src = "js/searchTag.js" ;
 document.body.appendChild(search);
 

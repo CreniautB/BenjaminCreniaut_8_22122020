@@ -32,6 +32,7 @@ header h1 {
   font-size: 18px;
   line-height: 22px;
   border-radius: 5px;
+  margin-bottom: 0;
 }
 
 #filtre {
@@ -41,10 +42,6 @@ header h1 {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-}
-
-#filtre .ingredients, #filtre .ustensils, #filtre .appareils {
-  display: none;
 }
 
 .fa-chevron-down {
@@ -130,6 +127,45 @@ input {
   width: 100px;
 }
 
+.ingredients, .ustensils, .appareils {
+  display: none;
+  width: 200px;
+  margin: 0.5em;
+  color: white;
+}
+
+#listingIngredients, #listingAppareil, #listingUst {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 5px;
+  margin: 0;
+}
+
+#listingIngredients {
+  background-color: #3282F7;
+}
+
+#listingAppareil {
+  background-color: #68D9A4;
+}
+
+#listingUst {
+  background-color: #D04F4F;
+}
+
+.tag {
+  list-style: none;
+}
+
+.tag img {
+  width: 15px;
+  color: #3282F7;
+  margin-left: 1em;
+}
+
 /** Main Css */
 #cardModel {
   display: none;
@@ -195,6 +231,8 @@ input {
 .pRecipes {
   font-size: 12px;
   padding-right: 1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .recipesContent {

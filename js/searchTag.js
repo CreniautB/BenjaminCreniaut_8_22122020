@@ -26,8 +26,6 @@ document.querySelector("#ustSearchBar").addEventListener("keyup", function(e){
     inputUstBtn=inputUstBtn.toLowerCase(); 
    
     let ust = document.getElementsByClassName('ustensils'); 
-    
-    console.log(inputUstBtn)
 
     for (i = 0; i < ust.length; i++) {  
         if (!ust[i].innerHTML.toLowerCase().includes(inputUstBtn) || inputUstBtn == "" ) { 
