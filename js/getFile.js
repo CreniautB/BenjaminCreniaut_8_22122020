@@ -11,7 +11,8 @@ for ( let i = 0 ; i < recipes.length; i++){
     clone.querySelector(".titleRecipies").innerHTML = recipes[i]["name"];
     clone.querySelector(".pRecipes").innerHTML = recipes[i]["description"];
     clone.querySelector(".timeRecipes").innerHTML = recipes[i]["time"]
-    clone.id = i;
+    clone.id = "recipe"+i;
+    clone.classList.add("recipe")
     
     recipes[i]["ingredients"].forEach(element => {
         

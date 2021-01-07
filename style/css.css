@@ -168,7 +168,7 @@ input {
 
 /** Main Css */
 #cardModel {
-  display: none;
+  display: none !important;
 }
 
 #mainContent {

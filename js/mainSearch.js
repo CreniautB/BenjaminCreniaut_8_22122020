@@ -1,43 +1,42 @@
 
-
-
-
-/**
-si lists tags sont vides =>
-
-*/
-
-
-
 document.querySelector("#inputSearchBar").addEventListener("keyup", function(e){
+    
     e.preventDefault();
     let value = document.querySelector('#inputSearchBar').value
     value = value.toLowerCase();
-
-
     
-})
+        if ( value.length > 2 )
+        {
+            
+            document.querySelectorAll(".pRecipes").forEach(pContent => 
+                {
+                    console.log(pContent.innerHTML.toLowerCase())
+                    cardViaP = pContent.parentElement.parentElement.parentElement
+                    cardViaP.style.display = "none"
+                    if ( pContent.innerHTML.toLowerCase().includes(value))
+                    {
+                        cardViaP.style.display = "block"
+                    }
+                })
+            
+            document.querySelectorAll(".titleRecipies").forEach(title =>
+                {               
+                    cardViaTitle = title.parentElement.parentElement.parentElement
+                    if (title.innerHTML.toLowerCase().includes(value) ) { 
+                            cardViaTitle.style.display = "block"
 
-
-
-
-
-/**
-document.querySelector("#ingSearchBar").addEventListener("keyup", function(e){
-
-    e.preventDefault();
-    let inputIngBtn = document.querySelector('#ingSearchBar').value 
-    inputIngBtn=inputIngBtn.toLowerCase(); 
-    let ing = document.getElementsByClassName('ingredients'); 
+                    } 
+                }  
+            )}
+            
+        else
+        {
+            document.querySelectorAll(".titleRecipies").forEach(title =>
+                {
+                    title.parentElement.parentElement.parentElement.style.display = "block"
+                })
+        }
+    }
     
-    for (i = 0; i < ing.length; i++) {  
-        if (!ing[i].innerHTML.toLowerCase().includes(inputIngBtn) || inputIngBtn == "" ) { 
-            ing[i].style.display="none"; 
-        } 
-        else { 
-            ing[i].style.display="block";                  
-        } 
-    } 
-})
+)
 
-*/
