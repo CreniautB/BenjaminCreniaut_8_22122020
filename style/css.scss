@@ -1,4 +1,9 @@
 /** Header */ 
+body
+{
+    margin: 5%;
+    margin-top: 0;
+}
 
 header 
 {
@@ -192,8 +197,26 @@ header
     padding-right : 1em;
     margin: 0;
     min-width: 50%;
+}
+.listIngredients > li 
+{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    flex-wrap: wrap;
+}
+.listIngredients > li > p
+{
+    font-size: 12px;
+    margin: 0;
 
 }
+.ingredient
+{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 .pRecipes
 {
     font-size: 12px;

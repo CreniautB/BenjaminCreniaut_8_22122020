@@ -1,25 +1,26 @@
 
 /** Ingredients */
-var ing = document.querySelectorAll(".appareils")
+var ing = document.querySelectorAll(".ingredients")
 
 let tagList = []
 
-ing.forEach(apps => {
+ing.forEach(ings => {
 
-    apps.addEventListener("click", function(e)
+    ings.addEventListener("click", function(e)
     {
         e.preventDefault();
 
-        if (tagList.includes(apps.innerHTML.toLowerCase())){}
+        if (tagList.includes(ings.innerHTML.toLowerCase())){}
         else
         {
-            tagList.push(apps.innerHTML)
+            tagList.push(ings.innerHTML)
         
             tagContainer = document.createElement("li")
             tagContainer.classList.add("tag")
 
             tag = document.createElement("span")
-            tag.innerHTML = (apps.innerHTML)
+            tag.classList.add("ingredientTag")
+            tag.innerHTML = (ings.innerHTML)
 
             cross = document.createElement("img")
             cross.src = "img/cross.png"
@@ -39,13 +40,14 @@ ing.forEach(apps => {
                     })
                 })
         }
+
      })
 })
 
 
 
 /** Appareils */
-var app = document.querySelectorAll(".ingredients")
+var app = document.querySelectorAll(".appareils")
 
 let tagListApp = []
 

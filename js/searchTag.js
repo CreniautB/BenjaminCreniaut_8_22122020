@@ -16,8 +16,6 @@ document.querySelector("#ingSearchBar").addEventListener("keyup", function(e){
     } 
 })
 
-
-
 /** Ustensils */
 document.querySelector("#ustSearchBar").addEventListener("keyup", function(e){
 
@@ -35,11 +33,7 @@ document.querySelector("#ustSearchBar").addEventListener("keyup", function(e){
             ust[i].style.display="block";                  
         } 
     } 
-
-
 })
-
-
 
 /** Appareils */
 document.querySelector("#appSearchBar").addEventListener("keyup", function(e){
@@ -58,7 +52,6 @@ document.querySelector("#appSearchBar").addEventListener("keyup", function(e){
             app[i].style.display="block";                  
         } 
     } 
-
 })
 
 
