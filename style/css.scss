@@ -160,16 +160,32 @@ header
     padding: 1em;
     border-radius: 5px;
 }
+.recipeHidden
+{
+    display: none;
+}
+
 .greyContent
 {
     background-color: #C7BEBE;
-    height: 180px;
-    border-radius: 5px;
+    height: 200px;
+    
+}
+.recipeContent
+{
+    background-color: #E7E7E7;
+    margin: 0;
+    height: 200px;
 }
 .title
 {
     display: flex;
     justify-content: space-between;
+    margin-top: 0.5em;
+}
+.titleRecipes
+{
+    font-size: 18px;
 }
 .timeRecipes
 {

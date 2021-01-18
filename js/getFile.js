@@ -12,13 +12,16 @@ for ( let i = 0 ; i < recipes.length; i++){
     clone.querySelector(".pRecipes").innerHTML = recipes[i]["description"];
     clone.querySelector(".timeRecipes").innerHTML = recipes[i]["time"]
     clone.id = "recipe"+i;
-    clone.classList.add("recipe")
-    
+    clone.classList.add("recipe")   
+    ingData = []
+
     recipes[i]["ingredients"].forEach(element => {
         
         var ingQuanitty = document.createElement("LI");
         var ing = document.createElement("p");
         var quantity = document.createElement("p");
+
+        ingData.push(element["ingredient"])
         
         
         if ( element["quantity"] == undefined){ ingg2 = "" }
@@ -36,7 +39,14 @@ for ( let i = 0 ; i < recipes.length; i++){
         ingQuanitty.appendChild(quantity)
         clone.querySelector(".listIngredients").appendChild(ingQuanitty)
         
-    })}
+    })
+
+    clone.dataset.id = recipes[i]["id"]
+    clone.dataset.title = recipes[i]["name"]
+    clone.dataset.ing = ingData
+    clone.dataset.app = recipes[i]["appliance"]
+    clone.dataset.ust = recipes[i]["ustensils"]
+}
 
 var mainS = document.createElement("script")
 mainS.src = "js/mainSearch.js"

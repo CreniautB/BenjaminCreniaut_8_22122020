@@ -3,6 +3,7 @@
 var ing = document.querySelectorAll(".ingredients")
 
 let tagList = []
+let listTaged = []
 
 ing.forEach(ings => {
 
@@ -13,6 +14,7 @@ ing.forEach(ings => {
         if (tagList.includes(ings.innerHTML.toLowerCase())){}
         else
         {
+            listTaged.push(ings.innerHTML)
             tagList.push(ings.innerHTML)
         
             tagContainer = document.createElement("li")
@@ -24,11 +26,13 @@ ing.forEach(ings => {
 
             cross = document.createElement("img")
             cross.src = "img/cross.png"
+            cross.classList.add("cross")
 
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
 
             domList = document.querySelector("#currentTags").appendChild(tagContainer)
+            
             img = document.querySelectorAll(".tag img")
             img.forEach(imgs => {
                     imgs.addEventListener("click", function(e)
@@ -37,9 +41,16 @@ ing.forEach(ings => {
                         child = parent.children[0].innerHTML
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none"
+                        listTaged = listTaged.filter(item => item !== child)
+                        document.querySelector("#currentTags").dataset.tags = listTaged
+
                     })
-                })
-        }
+                })      
+                            
+            document.querySelector("#currentTags").dataset.tags = listTaged
+            
+
+            }
 
      })
 })
@@ -62,14 +73,18 @@ app.forEach(element => {
         {
             tagList.push(element.innerHTML)
         
+        
             tagContainer = document.createElement("li")
             tagContainer.classList.add("tag")
 
             tag = document.createElement("span")
             tag.innerHTML = (element.innerHTML)
+            tag.classList.add ("appTag")
 
             cross = document.createElement("img")
             cross.src = "img/cross.png"
+            cross.classList.add("cross")
+
 
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
@@ -111,9 +126,11 @@ ust.forEach(usts => {
 
             tag = document.createElement("span")
             tag.innerHTML = (usts.innerHTML)
+            tag.classList.add("ustTag")
 
             cross = document.createElement("img")
             cross.src = "img/cross.png"
+            cross.classList.add("cross")
 
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)

@@ -54,5 +54,3 @@ document.querySelector("#appSearchBar").addEventListener("keyup", function(e){
     } 
 })
 
-
-
