@@ -3,7 +3,7 @@
 var ing = document.querySelectorAll(".ingredients")
 
 let tagList = []
-let listTaged = []
+let listTagedIng = []
 
 ing.forEach(ings => {
 
@@ -14,7 +14,7 @@ ing.forEach(ings => {
         if (tagList.includes(ings.innerHTML.toLowerCase())){}
         else
         {
-            listTaged.push(ings.innerHTML)
+            listTagedIng.push(ings.innerHTML)
             tagList.push(ings.innerHTML)
         
             tagContainer = document.createElement("li")
@@ -31,7 +31,7 @@ ing.forEach(ings => {
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
 
-            domList = document.querySelector("#currentTags").appendChild(tagContainer)
+            domList = document.querySelector("#currentTagsIng").appendChild(tagContainer)
             
             img = document.querySelectorAll(".tag img")
             img.forEach(imgs => {
@@ -41,26 +41,20 @@ ing.forEach(ings => {
                         child = parent.children[0].innerHTML
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none"
-                        listTaged = listTaged.filter(item => item !== child)
-                        document.querySelector("#currentTags").dataset.tags = listTaged
-
+                        listTagedIng = listTagedIng.filter(item => item !== child)
+                        document.querySelector("#currentTagsIng").dataset.tags = listTagedIng
+                        
                     })
-                })      
-                            
-            document.querySelector("#currentTags").dataset.tags = listTaged
-            
-
+                })           
+            document.querySelector("#currentTagsIng").dataset.tags = listTagedIng
             }
-
      })
 })
-
-
-
 /** Appareils */
 var app = document.querySelectorAll(".appareils")
 
 let tagListApp = []
+let listTagedApp = []
 
 app.forEach(element => {
 
@@ -71,6 +65,7 @@ app.forEach(element => {
         if (tagList.includes(element.innerHTML.toLowerCase())){}
         else
         {
+            listTagedApp.push(element.innerHTML)
             tagList.push(element.innerHTML)
         
         
@@ -89,7 +84,8 @@ app.forEach(element => {
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
 
-            domList = document.querySelector("#currentTags").appendChild(tagContainer)
+            domList = document.querySelector("#currentTagsApp").appendChild(tagContainer)
+            
             img = document.querySelectorAll(".tag img")
             img.forEach(imgs => {
                     imgs.addEventListener("click", function(e)
@@ -98,8 +94,11 @@ app.forEach(element => {
                         child = parent.children[0].innerHTML
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none"
+                        listTagedApp = listTagedApp.filter(item => item !== child)
+                        document.querySelector("#currentTagsApp").dataset.tags = listTagedApp
                     })
                 })
+            document.querySelector("#currentTagsApp").dataset.tags = listTagedApp
         }
      })
 })
@@ -109,6 +108,7 @@ app.forEach(element => {
 var ust = document.querySelectorAll(".ustensils")
 
 let tagListUst = []
+let listTagedUst = []
 
 ust.forEach(usts => {
 
@@ -119,6 +119,7 @@ ust.forEach(usts => {
         if (tagList.includes(usts.innerHTML.toLowerCase())){}
         else
         {
+            listTagedUst.push(usts.innerHTML)
             tagList.push(usts.innerHTML)
         
             tagContainer = document.createElement("li")
@@ -135,7 +136,8 @@ ust.forEach(usts => {
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
 
-            domList = document.querySelector("#currentTags").appendChild(tagContainer)
+            domList = document.querySelector("#currentTagsUst").appendChild(tagContainer)
+            
             img = document.querySelectorAll(".tag img")
             img.forEach(imgs => {
                     imgs.addEventListener("click", function(e)
@@ -143,9 +145,12 @@ ust.forEach(usts => {
                         parent = this.parentNode
                         child = parent.children[0].innerHTML
                         tagList = tagList.filter(item => item !== child)
-                        parent.style.display = "none"
+                        parent.style.display = "none";
+                        listTagedUst = listTagedUst.filter(item => item !== child)
+                        document.querySelector("#currentTagsUst").dataset.tags = listTagedUst
                     })
                 })
+            document.querySelector("#currentTagsUst").dataset.tags = listTagedUst
         }
      })
 })
