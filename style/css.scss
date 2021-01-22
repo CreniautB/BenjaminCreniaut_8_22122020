@@ -143,6 +143,31 @@ header
         margin-left: 1em;
     }
  }  
+
+  #currentTags
+  {
+      text-align: left;
+
+      li 
+      {
+          width: 150px;
+          text-align: center;
+          color: white;
+      }
+      .ingTag
+      {
+          background-color: #3282F7;
+      }
+      .ustTag
+      {
+          background-color: #D04F4F ;
+      }
+      .appTag
+      {
+          background-color: #68D9A4 ;
+      }
+  }
+
 /** Main Css */
 
 #cardModel
@@ -168,14 +193,13 @@ header
 .greyContent
 {
     background-color: #C7BEBE;
-    height: 200px;
+    min-height: 200px;
     
 }
 .recipeContent
 {
     background-color: #E7E7E7;
     margin: 0;
-    height: 200px;
 }
 .title
 {
@@ -237,11 +261,28 @@ header
 {
     font-size: 12px;
     padding-right: 1em;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 90px;
+    &:hover
+    {
+        display: block;
+        overflow: auto;
+        max-height: 500px;
+    }
 }
-.recipesContent
+
+.pRecipes:hover + .titleRecipes {
+    background-color: yellow;   
+}
+
+.IngPContainer
 {
     display: flex;
     justify-content: space-between;
+
+
 }

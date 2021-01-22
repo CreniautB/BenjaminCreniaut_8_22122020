@@ -19,9 +19,10 @@ ing.forEach(ings => {
         
             tagContainer = document.createElement("li")
             tagContainer.classList.add("tag")
+            tagContainer.classList.add("ingTag")
 
             tag = document.createElement("span")
-            tag.classList.add("ingredientTag")
+
             tag.innerHTML = (ings.innerHTML)
 
             cross = document.createElement("img")
@@ -31,7 +32,7 @@ ing.forEach(ings => {
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
 
-            domList = document.querySelector("#currentTagsIng").appendChild(tagContainer)
+            domList = document.querySelector("#currentTags").appendChild(tagContainer)
             
             img = document.querySelectorAll(".tag img")
             img.forEach(imgs => {
@@ -42,11 +43,11 @@ ing.forEach(ings => {
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none"
                         listTagedIng = listTagedIng.filter(item => item !== child)
-                        document.querySelector("#currentTagsIng").dataset.tags = listTagedIng
+                        document.querySelector("#currentTags").dataset.tags = listTagedIng
                         
                     })
                 })           
-            document.querySelector("#currentTagsIng").dataset.tags = listTagedIng
+            document.querySelector("#currentTags").dataset.tags = listTagedIng
             }
      })
 })
@@ -71,10 +72,11 @@ app.forEach(element => {
         
             tagContainer = document.createElement("li")
             tagContainer.classList.add("tag")
+            tagcontainer.classList.add("appTag")
 
             tag = document.createElement("span")
             tag.innerHTML = (element.innerHTML)
-            tag.classList.add ("appTag")
+
 
             cross = document.createElement("img")
             cross.src = "img/cross.png"
@@ -84,7 +86,7 @@ app.forEach(element => {
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
 
-            domList = document.querySelector("#currentTagsApp").appendChild(tagContainer)
+            domList = document.querySelector("#currentTags").appendChild(tagContainer)
             
             img = document.querySelectorAll(".tag img")
             img.forEach(imgs => {
@@ -95,10 +97,10 @@ app.forEach(element => {
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none"
                         listTagedApp = listTagedApp.filter(item => item !== child)
-                        document.querySelector("#currentTagsApp").dataset.tags = listTagedApp
+                        document.querySelector("#currentTags").dataset.tags = listTagedApp
                     })
                 })
-            document.querySelector("#currentTagsApp").dataset.tags = listTagedApp
+            document.querySelector("#currentTags").dataset.tags = listTagedApp
         }
      })
 })
@@ -124,10 +126,11 @@ ust.forEach(usts => {
         
             tagContainer = document.createElement("li")
             tagContainer.classList.add("tag")
+            tagContainer.classList.add("ustTag")
 
             tag = document.createElement("span")
             tag.innerHTML = (usts.innerHTML)
-            tag.classList.add("ustTag")
+
 
             cross = document.createElement("img")
             cross.src = "img/cross.png"
@@ -136,7 +139,7 @@ ust.forEach(usts => {
             tagContainer.appendChild(tag)
             tagContainer.appendChild(cross)
 
-            domList = document.querySelector("#currentTagsUst").appendChild(tagContainer)
+            domList = document.querySelector("#currentTags").appendChild(tagContainer)
             
             img = document.querySelectorAll(".tag img")
             img.forEach(imgs => {
@@ -147,10 +150,10 @@ ust.forEach(usts => {
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none";
                         listTagedUst = listTagedUst.filter(item => item !== child)
-                        document.querySelector("#currentTagsUst").dataset.tags = listTagedUst
+                        document.querySelector("#currentTags").dataset.tags = listTagedUst
                     })
                 })
-            document.querySelector("#currentTagsUst").dataset.tags = listTagedUst
+            document.querySelector("#currentTags").dataset.tags = listTagedUst
         }
      })
 })
