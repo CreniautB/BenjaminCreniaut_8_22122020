@@ -43,11 +43,11 @@ ing.forEach(ings => {
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none"
                         listTagedIng = listTagedIng.filter(item => item !== child)
-                        document.querySelector("#currentTags").dataset.tags = listTagedIng
+                        document.querySelector("#currentTags").dataset.tagsIng = listTagedIng
                         
                     })
                 })           
-            document.querySelector("#currentTags").dataset.tags = listTagedIng
+            document.querySelector("#currentTags").dataset.tagsIng = listTagedIng
             }
      })
 })
@@ -72,7 +72,7 @@ app.forEach(element => {
         
             tagContainer = document.createElement("li")
             tagContainer.classList.add("tag")
-            tagcontainer.classList.add("appTag")
+            tagContainer.classList.add("appTag")
 
             tag = document.createElement("span")
             tag.innerHTML = (element.innerHTML)
@@ -97,10 +97,10 @@ app.forEach(element => {
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none"
                         listTagedApp = listTagedApp.filter(item => item !== child)
-                        document.querySelector("#currentTags").dataset.tags = listTagedApp
+                        document.querySelector("#currentTags").dataset.tagsApp = listTagedApp
                     })
                 })
-            document.querySelector("#currentTags").dataset.tags = listTagedApp
+            document.querySelector("#currentTags").dataset.tagsApp = listTagedApp
         }
      })
 })
@@ -150,10 +150,10 @@ ust.forEach(usts => {
                         tagList = tagList.filter(item => item !== child)
                         parent.style.display = "none";
                         listTagedUst = listTagedUst.filter(item => item !== child)
-                        document.querySelector("#currentTags").dataset.tags = listTagedUst
+                        document.querySelector("#currentTags").dataset.tagsUst = listTagedUst
                     })
                 })
-            document.querySelector("#currentTags").dataset.tags = listTagedUst
+            document.querySelector("#currentTags").dataset.tagsUst = listTagedUst
         }
      })
 })
