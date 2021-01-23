@@ -10,14 +10,23 @@ var mainSearch = function (event) {
     /** Récupération des dataSets */
 
     let value = document.querySelector('#inputSearchBar').value.toLowerCase()
-    let taged = document.querySelector("#currentTags").dataset.tags
+    let tagedIng = document.querySelector("#currentTags").dataset.tagsIng
+    let tagedUst = document.querySelector("#currentTags").dataset.tagsUst
+    let tagedApp = document.querySelector("#currentTags").dataset.tagsApp
+
 
     /** Ajout tag attachés dans une liste */
 
     var allTags = []
 
-    if ( taged !== undefined && taged !== ""){
-        allTags.push(taged)
+    if ( tagedIng !== undefined && tagedIng !== ""){
+        allTags.push(tagedIng)
+    }
+    if ( tagedUst !== undefined && tagedUst !== ""){
+        allTags.push(tagedUst)
+    }
+    if ( tagedApp !== undefined && tagedApp !== ""){
+        allTags.push(tagedApp)
     }
     
     /** Lance la fonction si le champ de recherche fait au moins 3 caractere ou si un tag est activé */
