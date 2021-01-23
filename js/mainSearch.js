@@ -5,13 +5,7 @@ function isEmpty(tag) {
 }
 let checker = (arr, target) => target.every(v => arr.includes(v));
 
-
-
 var mainSearch = function (event) {
-
-    document.querySelectorAll(".recipe").forEach(recipe => {
-        recipe.classList.remove("recipeHidden")
-    })
 
     /** Récupération des dataSets */
 
@@ -42,66 +36,42 @@ var mainSearch = function (event) {
 /** Comparaison de Value au recette   */
 
 function compareToRecipe(value, allTags){
-    document.querySelectorAll(".recipe").forEach(recipe => {
-    
-            /** Récupération des dataSets des Recettes */
-            paraRecipes = recipe.querySelector(".pRecipes").innerHTML.toLowerCase()
-            title = recipe.dataset.title.toLowerCase()
-            app = recipe.dataset.app.toLowerCase()
-            ust = recipe.dataset.ust.toLowerCase()
-            ing = recipe.dataset.ing.toLowerCase()
 
-            /** Ajout des données a une liste pour la comparer */
-            recipeTags = []
-            allRecipesTags = app+"," + ust+ "," + ing
-            recipeTags.push(allRecipesTags)
-            chaine = recipeTags.join(",")
-            recipeArray = chaine.split(",")
+    document.querySelectorAll(".recipe").forEach( recipe => { recipe.classList.add("recipeHidden")})
 
-            console.log(allTags)
+    const displayedRecipe = []
+    const result = recipes.filter(function(recipe){
 
-            /** Si aucun tag attaché */
-            if (allTags.every(isEmpty) === true){
+        recipeTags = []
+        recipeTags.push(recipe.appliance)
 
-                if (title.includes(value) || paraRecipes.includes(value) || ing.includes(value) || app.includes(value) || ust.includes(value)){}
-                else{
-                    recipe.classList.add("recipeHidden")
-                }
-            }
-           
-            /** Si au moins un tag est attaché */
-            else if ( allTags.every(isEmpty) === false )
-            {
-                recipe.classList.remove("recipeHidden")
+        /** Atribution du contenu de la recette dans une string */
+        ing = []
+        recipe.ingredients.forEach(ings => {ing.push(ings.ingredient.toLowerCase()); recipeTags.push(ings.ingredient.toLowerCase()) })
+        app = []
+        recipe.ustensils.forEach(ust => {app.push(ust); recipeTags.push(ust) })
+        app = app.toString().toLowerCase()
+        recipeContent = ing.toString()
 
-                /** Si la barre de recherche contiens au moins 3 caracteres */
-                if ( value.length >= 3 )
-                {
-                    if ( checker(recipeArray, allTags) === true  && (title.includes(value) || paraRecipes.includes(value) || ing.includes(value) || app.includes(value) || ust.includes(value))){
-                        recipe.classList.remove("recipeHidden")
-                    }
-                    else{
-                        recipe.classList.add("recipeHidden")
-                    }
-                }
+        recipeContent +=  "," + recipe.name.toLowerCase() + "," + recipe.appliance.toLowerCase() + "," + app
 
-                /** Si la barre de recherche contient moins de 3 caracteres */
-                if (value.length < 3 ){
-                   
-                    if ( checker(recipeArray, allTags) === true ){
-                        recipe.classList.remove("recipeHidden")
-                    }
-                    else{
-                        recipe.classList.add("recipeHidden")
-                    }
-                }
-            }
-            else{
-                recipe.classList.remove("recipeHidden")
-            }
+       
+
+        /** Comparaison de la recette a la value */
+        if( recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
+            displayedRecipe.push(recipe.id)
+            displayedRecipe.forEach( nb => {
+                console.log(nb)
+                number = nb-1
+                id =  "#recipe" + number
+                document.querySelector(id).classList.remove("recipeHidden")
+                
+            })
         }
-    )}
 
+    })
+    
+}
 
 
 
