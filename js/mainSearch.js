@@ -41,19 +41,64 @@ var mainSearch = function (event) {
     }
 };
 
+
+
 /** Comparaison de Value au recette   */
 
 function compareToRecipe(value, allTags){
 
     document.querySelectorAll(".recipe").forEach( recipe => { recipe.classList.add("recipeHidden");});
 
+    
+    var displayedRecipe = recipes.filter(function(recipe){
+
+        recipeTags = [];
+        recipeTags.push(recipe.appliance);
+       
+        ing = [];
+        recipe.ingredients.forEach(ings => {ing.push(ings.ingredient.toLowerCase()); recipeTags.push(ings.ingredient.toLowerCase());});
+        app = [];
+        recipe.ustensils.forEach(ust => {app.push(ust); recipeTags.push(ust) ;});
+        app = app.toString().toLowerCase();
+        recipeContent = ing.toString();
+
+        recipeContent +=  "," + recipe.name.toLowerCase() + "," + recipe.appliance.toLowerCase() + "," + app;
+
+        if( recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
+           return recipe
+        }
+    })
+
+    displayedRecipe.forEach( recipe => {
+                
+        number = recipe.id-1;
+        id =  "#recipe" + number;
+        document.querySelector(id).classList.remove("recipeHidden");
+        
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
     const displayedRecipe = [];
-    const result = recipes.filter(function(recipe){
+    recipes.filter(function(recipe){
 
         recipeTags = [];
         recipeTags.push(recipe.appliance);
 
-        /** Atribution du contenu de la recette dans une string */
+       
         ing = [];
         recipe.ingredients.forEach(ings => {ing.push(ings.ingredient.toLowerCase()); recipeTags.push(ings.ingredient.toLowerCase());});
         app = [];
@@ -65,9 +110,7 @@ function compareToRecipe(value, allTags){
 
        
 
-        /** Comparaison de la recette a la value */
-
-        test = recipe
+       
 
         if( recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
             displayedRecipe.push(recipe.id);
@@ -81,8 +124,10 @@ function compareToRecipe(value, allTags){
         }
     }
     );
+    */
 
-};
+
+
 
 document.querySelector("#inputSearchBar").addEventListener('keyup', mainSearch, false);
 window.addEventListener('click', mainSearch, false);
