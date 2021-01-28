@@ -38,55 +38,56 @@
 
     <section class="container-fluid" id="filtre">
 
-        <button type="button" class="btn" id="btnIng">
-            <input type="text" placeholder="Ingredients" class="inputBtn" id="ingSearchBar"><i id="arrowIng" class="fas fa-chevron-down"></i></button>
+        <div class="btnContainer">
+            <button type="button" class="btn" id="btnIng">
+                <input type="text" placeholder="Ingredients" class="inputBtn" id="ingSearchBar"><i id="arrowIng" class="fas fa-chevron-down btnArrow"></i></button>
+                <ul id="listingIngredients">
 
-        <button type="button" class="btn" id="btnAppareil">
-            <input type="text" placeholder="Appareil" class="inputBtn" id="appSearchBar"><i id="arrowApp" class="fas fa-chevron-down"></i></button>
-
-        <button type="button" class="btn" id="btnUst">
-            <input type="text" placeholder="Ustensiles" class="inputBtn" id="ustSearchBar"><i id="arrowUst" class="fas fa-chevron-down"></i></button>
-
-
-    </section>
-
-    <section id="tags" class="container-fluid">
-        <ul id="listingIngredients">
-
-        </ul>
-        <ul id="listingAppareil">
-            
-        </ul>
-        <ul id="listingUst">
-
-        </ul>
-    </section>
-
-
-    <main class="container-fluid">
-
-        <div id="mainContent" class="row">
-            <article id="cardModel" class="col-4 cardClone">
-                <div class="greyContent">
-
-                </div>
-                <div class="row recipeContent">                    
-                    <div class="col title">
-                    
-                        <h2 class="titleRecipes"></h2>
-                        <span class="time" >
-                            <i class="far fa-clock oclock"></i><div class="timeRecipes"></div>
-                        </span>
-                    </div>
-                    <div class="IngPContainer">
-                        <ul class="listIngredients col">
-                        </ul>
-                        <p class="pRecipes">
-                        </p>
-                    </div>
-                </div>
-            </article>
+                </ul>
         </div>
+        <div class="btnContainer"> 
+            <button type="button" class="btn" id="btnAppareil">
+                <input type="text" placeholder="Appareil" class="inputBtn" id="appSearchBar"><i id="arrowApp" class="fas fa-chevron-down btnArrow"></i></button>
+                <ul id="listingAppareil">
+            
+                </ul>
+        </div>
+        <div class="btnContainer">
+            <button type="button" class="btn" id="btnUst">
+                <input type="text" placeholder="Ustensiles" class="inputBtn" id="ustSearchBar"><i id="arrowUst" class="fas fa-chevron-down btnArrow"></i></button>
+                <ul id="listingUst">
+
+                </ul>
+            </div>
+
+    </section>
+
+
+
+
+    <main>
+
+        <article id="cardModel" class="cardClone">
+            <div class="greyContent">
+
+            </div>
+            <div class="row recipeContent">                    
+                <div class="col title">
+                
+                    <h2 class="titleRecipes"></h2>
+                    <span class="time" >
+                        <i class="far fa-clock oclock"></i><div class="timeRecipes"></div>
+                    </span>
+                </div>
+                <div class="IngPContainer">
+                    <ul class="listIngredients col">
+                    </ul>
+                    <p class="pRecipes">
+                    </p>
+                </div>
+            </div>
+        </article>
+
 
     </main>
 

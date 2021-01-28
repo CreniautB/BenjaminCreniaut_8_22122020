@@ -17,25 +17,6 @@ for ( let i = 0; i < ingArray.length; i++)
    listIng.appendChild(liIng)
 }
 
-/** Menu Déroulant de tous les Ingrédients */
-let boolarrowIng = new Boolean("false")
-document.querySelector("#arrowIng").addEventListener("click", function(e)
-{
-   e.preventDefault();
-   if ( boolarrowIng == false)
-   {     document.querySelectorAll(".ingredients").forEach(ingArrows => {
-         ingArrows.style.display = "block";
-      })
-         boolarrowIng = true}
-   else
-   {
-      document.querySelectorAll(".ingredients").forEach(ingArrows => {
-      ingArrows.style.display = "none";
-      boolarrowIng = false
-   })}})
-
-
-
 
 /** Création Dictionnaire Ustensils */
 let ustArray = []
@@ -55,21 +36,6 @@ for ( let i = 0; i < ustArray.length; i++)
    listUstensile.appendChild(liUst)
 }
 
-/** Menu Déroulant de tous les Ustensils */
-let boolarrowUst = new Boolean("false")
-document.querySelector("#arrowUst").addEventListener("click", function(e)
-{
-   e.preventDefault();
-   if ( boolarrowUst == false)
-   {     document.querySelectorAll(".ustensils").forEach(ustArrows => {
-         ustArrows.style.display = "block";})
-         boolarrowUst = true}
-   else
-   {
-      document.querySelectorAll(".ustensils").forEach(ustArrows => {
-      ustArrows.style.display = "none";
-      boolarrowUst = false
-   })}})
 
 /** Création Dictionnaire Appareils */
 let appArray = []
@@ -87,25 +53,40 @@ for ( let i = 0; i < appArray.length; i++)
    listAppareil.appendChild(liApp)
 }
 
-/** Menu Déroulant de tous les Appareils */
-let boolarrowApp = new Boolean("false")
-document.querySelector("#arrowApp").addEventListener("click", function(e)
-{
-   e.preventDefault();
-   if ( boolarrowApp == false)
-   {     document.querySelectorAll(".appareils").forEach(appArrows => {
-         appArrows.style.display = "block";})
-         boolarrowApp = true}
-   else
-   {
-      document.querySelectorAll(".appareils").forEach(appArrows => {
-      appArrows.style.display = "none";
-      boolarrowApp = false
-   })}})
+
+
+/** Affichage des listes lors du click sur le chevron */
+
+document.querySelectorAll(".btnArrow").forEach(btn =>{
+  
+
+   btn.addEventListener("click", function(e){
+
+      e.preventDefault()
+
+      if (btn.classList.contains(".activeBtn") == false){
+         
+         btnContainer = btn.parentElement.parentElement
+         list = btnContainer.querySelector("ul")
+         list.querySelectorAll("li").forEach(li => {li.style.display = "block"}) 
+         btn.classList.add(".activeBtn")
+     
+      }
+      else {
+         btnContainer = btn.parentElement.parentElement
+         list = btnContainer.querySelector("ul")
+         list.querySelectorAll("li").forEach(li => {li.style.display = "none"}) 
+         btn.classList.remove(".activeBtn")
+      }
+   })
+})
+
 
 
    /** Appel des fichier Javascript */
 var search = document.createElement("script");
 search.src = "js/searchTag.js" ;
 document.body.appendChild(search);
+
+
 

@@ -5,7 +5,7 @@ for ( let i = 0 ; i < recipes.length; i++){
 
     var clone = model.cloneNode(true);
 
-    document.querySelector("#mainContent").appendChild(clone);
+    document.querySelector("main").appendChild(clone);
 
 
     clone.querySelector(".titleRecipes").innerHTML = recipes[i]["name"];
@@ -25,14 +25,15 @@ for ( let i = 0 ; i < recipes.length; i++){
         
         
         if ( element["quantity"] == undefined){ ingg2 = "" }
-        else {ingg2 = element["quantity"]}
+        else {ingg2 = ": " +element["quantity"]}
         if (element["unit"] == undefined ){ ingg3 = ""}
+        else if (element["unit"] == "grammes" ){ingg3 ="g"}
         else{ingg3 = element["unit"];}
     
 
         ing.innerHTML = element["ingredient"]
         ing.classList.add("ingredient")
-        quantity.innerHTML = " : " + ingg2 + " " + ingg3 
+        quantity.innerHTML = ingg2 + " " + ingg3 
         quantity.classList.add("quantity")
 
         ingQuanitty.appendChild(ing)

@@ -1,3 +1,4 @@
+
 /** Header */ 
 body
 {
@@ -49,7 +50,14 @@ header
 {
     margin-top: 1em;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    
+    .btnContainer
+    {
+        display: flex;
+        flex-direction: column;
+        max-width: 50%;
+    }
 }
 
  .fa-chevron-down
@@ -62,6 +70,8 @@ header
  #btnIng
  {
     background-color: #3282F7;
+    justify-content: space-between;
+
     input{
         background-color: #3282F7;
         &::placeholder
@@ -103,8 +113,9 @@ header
  .ingredients, .ustensils, .appareils
  {
      display: none;
-     width: 200px;
-     margin: 0.5em;
+     min-width: 150px;
+     margin: 0.3em;
+     margin-right: 0.7em;
      color: white;
  }
 
@@ -114,6 +125,8 @@ header
      flex-wrap: wrap;
      border-radius: 5px;
      margin: 0;
+     padding: 0;
+     width: 95%;
  }
 
  #listingIngredients
@@ -129,7 +142,7 @@ header
 
  #listingUst
  {
-     background-color: #D04F4F;
+     background-color: #ED6454;
  }
 
  .tag
@@ -146,13 +159,23 @@ header
 
   #currentTags
   {
-      text-align: left;
+      display: flex;
+      padding: 0;
+      margin-top: 1em;
+      width: 75%;
+      flex-wrap: wrap;
+
 
       li 
       {
-          width: 150px;
+          min-width: 150px;
           text-align: center;
           color: white;
+          padding: 0.6em;
+          border-radius: 5px;
+          margin-right: 0.5em;
+          margin-top: 0.5em;
+
       }
       .ingTag
       {
@@ -174,16 +197,19 @@ header
 {
     display: none!important;
 }
-#mainContent
+main
 {
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
 }
 .cardClone
 {
-    height: 364px;
     overflow: hidden;
     padding: 1em;
     border-radius: 5px;
+    width: 380px;
 }
 .recipeHidden
 {
@@ -193,13 +219,14 @@ header
 .greyContent
 {
     background-color: #C7BEBE;
-    min-height: 200px;
+    height: 170px;
     
 }
 .recipeContent
 {
     background-color: #E7E7E7;
     margin: 0;
+    padding-bottom: 0.5em;
 }
 .title
 {
@@ -234,9 +261,15 @@ header
     font-size: 12px;
     font-weight: 700;
     list-style-type: none;
-    padding-right : 1em;
+    padding-right : 0.5em;
     margin: 0;
-    min-width: 50%;
+    min-width: 60%;
+    line-height: 14px;
+    
+    .quantity
+    {
+        font-weight: 400;
+    }
 }
 .listIngredients > li 
 {
@@ -267,17 +300,17 @@ header
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 90px;
+    transition: 0.8s;
+    
     &:hover
     {
         display: block;
         overflow: auto;
         max-height: 500px;
+        z-index: 2000;
     }
 }
 
-.pRecipes:hover + .titleRecipes {
-    background-color: yellow;   
-}
 
 .IngPContainer
 {
