@@ -32,7 +32,12 @@ header
 }
 
 /** Button Filtre */
-
+.btnActive
+{
+    border-bottom-left-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+    width: 95%!important;
+}
 .btn
  {
      width: 200px;
@@ -44,7 +49,10 @@ header
      font-size: 18px;
      line-height: 22px;
      border-radius: 5px;
-     margin-bottom: 0; }
+     margin-bottom: 0; 
+     display: flex;
+     justify-content: space-between;
+    }
 
 #filtre
 {
@@ -56,7 +64,7 @@ header
     {
         display: flex;
         flex-direction: column;
-        max-width: 50%;
+        max-width: 55%;
     }
 }
 
@@ -127,6 +135,9 @@ header
      margin: 0;
      padding: 0;
      width: 95%;
+     max-height: 300px;
+     border-top-left-radius: 0;
+     border-top-right-radius: 0;
  }
 
  #listingIngredients
@@ -317,5 +328,15 @@ main
     display: flex;
     justify-content: space-between;
 
+}
 
+#zeroRecipe
+{
+    display: none;
+}
+
+.zeroRecipeActive
+{
+    display: block!important;
+    margin: 1em;
 }

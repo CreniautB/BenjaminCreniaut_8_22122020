@@ -27,6 +27,12 @@ header h1 {
 }
 
 /** Button Filtre */
+.btnActive {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  width: 95% !important;
+}
+
 .btn {
   width: 200px;
   overflow: hidden;
@@ -38,6 +44,12 @@ header h1 {
   line-height: 22px;
   border-radius: 5px;
   margin-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #filtre {
@@ -57,7 +69,7 @@ header h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 50%;
+  max-width: 55%;
 }
 
 .fa-chevron-down {
@@ -164,6 +176,9 @@ input {
   margin: 0;
   padding: 0;
   width: 95%;
+  max-height: 300px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 #listingIngredients {
@@ -360,5 +375,14 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#zeroRecipe {
+  display: none;
+}
+
+.zeroRecipeActive {
+  display: block !important;
+  margin: 1em;
 }
 /*# sourceMappingURL=css.css.map */

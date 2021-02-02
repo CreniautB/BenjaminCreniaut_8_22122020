@@ -1,56 +1,56 @@
 /** ingredient */
 
-let ingArray = []
+let ingArray = [];
 
 /** Création Dictionnaire Ingredients */
 recipes.forEach(element => {
-    for ( let i = 0 ; i < element["ingredients"].length ; i++){
-       if (ingArray.includes(element["ingredients"][i]["ingredient"].toLowerCase())){}
-       else{ingArray.push(element["ingredients"][i]["ingredient"].toLowerCase())}}})
+    for ( let i = 0 ; i < element['ingredients'].length ; i++){
+       if (ingArray.includes(element['ingredients'][i]['ingredient'].toLowerCase())){}
+       else{ingArray.push(element['ingredients'][i]['ingredient'].toLowerCase());}}})
 
-listIng = document.querySelector("#listingIngredients")
+listIng = document.querySelector("#listingIngredients");
 for ( let i = 0; i < ingArray.length; i++)
 {
-   var liIng = document.createElement("li")
-   liIng.innerHTML = ingArray[i]
+   var liIng = document.createElement("li");
+   liIng.innerHTML = ingArray[i];
    liIng.classList.add("ingredients");
-   listIng.appendChild(liIng)
+   listIng.appendChild(liIng);
 }
 
 
 /** Création Dictionnaire Ustensils */
-let ustArray = []
+let ustArray = [];
 recipes.forEach(element => {
    for ( let i = 0 ; i < element["ustensils"].length ; i++){   
       if (ustArray.includes(element["ustensils"][i].toLowerCase())){}
-      else{ustArray.push(element["ustensils"][i].toLowerCase())}
+      else{ustArray.push(element["ustensils"][i].toLowerCase());}
    }
-})
+});
 
-listUstensile = document.querySelector("#listingUst")
+listUstensile = document.querySelector("#listingUst");
 for ( let i = 0; i < ustArray.length; i++)
 {
-   var liUst = document.createElement("li")
-   liUst.innerHTML = ustArray[i]
+   var liUst = document.createElement("li");
+   liUst.innerHTML = ustArray[i];
    liUst.classList.add("ustensils");
-   listUstensile.appendChild(liUst)
+   listUstensile.appendChild(liUst);
 }
 
 
 /** Création Dictionnaire Appareils */
-let appArray = []
+let appArray = [];
 recipes.forEach(element => {     
-   if (appArray.includes(element["appliance"].toLowerCase())){}
-   else{appArray.push(element["appliance"].toLowerCase())}})
+   if (appArray.includes(element['appliance'].toLowerCase())){}
+   else{appArray.push(element["appliance"].toLowerCase());}});
 
-listAppareil = document.querySelector("#listingAppareil")
+listAppareil = document.querySelector("#listingAppareil");
 
 for ( let i = 0; i < appArray.length; i++)
 {
-   var liApp = document.createElement("li")
-   liApp.innerHTML = appArray[i]
+   var liApp = document.createElement("li");
+   liApp.innerHTML = appArray[i];
    liApp.classList.add("appareils");
-   listAppareil.appendChild(liApp)
+   listAppareil.appendChild(liApp);
 }
 
 
@@ -59,27 +59,28 @@ for ( let i = 0; i < appArray.length; i++)
 
 document.querySelectorAll(".btnArrow").forEach(btn =>{
   
-
    btn.addEventListener("click", function(e){
 
-      e.preventDefault()
+      e.preventDefault();
 
-      if (btn.classList.contains(".activeBtn") == false){
+      if (btn.classList.contains("activeBtn") == false){
          
-         btnContainer = btn.parentElement.parentElement
-         list = btnContainer.querySelector("ul")
-         list.querySelectorAll("li").forEach(li => {li.style.display = "block"}) 
-         btn.classList.add(".activeBtn")
+         btnContainer = btn.parentElement.parentElement;
+         list = btnContainer.querySelector("ul");
+         list.querySelectorAll("li").forEach(li => {li.style.display = "block";});
+         btn.classList.add("activeBtn");
+         btn.parentElement.classList.add("btnActive");
      
       }
       else {
-         btnContainer = btn.parentElement.parentElement
-         list = btnContainer.querySelector("ul")
-         list.querySelectorAll("li").forEach(li => {li.style.display = "none"}) 
-         btn.classList.remove(".activeBtn")
+         btnContainer = btn.parentElement.parentElement;
+         list = btnContainer.querySelector("ul");
+         list.querySelectorAll("li").forEach(li => {li.style.display = "none";});
+         btn.classList.remove("activeBtn");
+         btn.parentElement.classList.remove("btnActive");
       }
-   })
-})
+   });
+});
 
 
 
@@ -87,6 +88,3 @@ document.querySelectorAll(".btnArrow").forEach(btn =>{
 var search = document.createElement("script");
 search.src = "js/searchTag.js" ;
 document.body.appendChild(search);
-
-
-

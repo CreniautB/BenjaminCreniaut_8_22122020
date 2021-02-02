@@ -6,13 +6,14 @@ let checker = (arr, target) => target.every(v => arr.includes(v));
 
 var mainSearch = function (event) {
 
+    document.querySelector("#zeroRecipe").classList.remove("zeroRecipeActive");
+
     /** Récupération des dataSets */
 
     let value = document.querySelector('#inputSearchBar').value.toLowerCase();
     let tagedIng = document.querySelector("#currentTags").dataset.tagsIng;
     let tagedUst = document.querySelector("#currentTags").dataset.tagsUst;
     let tagedApp = document.querySelector("#currentTags").dataset.tagsApp;
-
 
     /** Ajout tag attachés dans une liste */
 
@@ -41,7 +42,18 @@ var mainSearch = function (event) {
     }
 };
 
-
+/** Récupération des donnés des recipes */
+function getRecipeContent(recipe){
+    recipeTags = [];
+    recipeTags.push(recipe.appliance);
+    ing = [];
+    recipe.ingredients.forEach(ings => {ing.push(ings.ingredient.toLowerCase()); recipeTags.push(ings.ingredient.toLowerCase());});
+    app = [];
+    recipe.ustensils.forEach(ust => {app.push(ust); recipeTags.push(ust) ;});
+    app = app.toString().toLowerCase();
+    recipeContent = ing.toString();
+    recipeContent +=  "," + recipe.name.toLowerCase() + "," + recipe.appliance.toLowerCase() + "," + app + recipe.description ;
+}
 
 /** Comparaison de Value au recette   */
 
@@ -49,85 +61,26 @@ function compareToRecipe(value, allTags){
 
     document.querySelectorAll(".recipe").forEach( recipe => { recipe.classList.add("recipeHidden");});
 
-    
-    var displayedRecipe = recipes.filter(function(recipe){
+        var displayedRecipe = recipes.filter(function(recipe){
 
-        recipeTags = [];
-        recipeTags.push(recipe.appliance);
-       
-        ing = [];
-        recipe.ingredients.forEach(ings => {ing.push(ings.ingredient.toLowerCase()); recipeTags.push(ings.ingredient.toLowerCase());});
-        app = [];
-        recipe.ustensils.forEach(ust => {app.push(ust); recipeTags.push(ust) ;});
-        app = app.toString().toLowerCase();
-        recipeContent = ing.toString();
+            getRecipeContent(recipe);
 
-        recipeContent +=  "," + recipe.name.toLowerCase() + "," + recipe.appliance.toLowerCase() + "," + app;
-
-        if( recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
-           return recipe
+            if( recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
+            return recipe;
+            }
         }
-    })
+    );
 
-    displayedRecipe.forEach( recipe => {
-                
+    if (displayedRecipe.length == 0){
+        document.querySelector("#zeroRecipe").classList.add("zeroRecipeActive");
+    }
+
+    displayedRecipe.forEach( recipe => {        
         number = recipe.id-1;
         id =  "#recipe" + number;
-        document.querySelector(id).classList.remove("recipeHidden");
-        
+        document.querySelector(id).classList.remove("recipeHidden"); 
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
-    const displayedRecipe = [];
-    recipes.filter(function(recipe){
-
-        recipeTags = [];
-        recipeTags.push(recipe.appliance);
-
-       
-        ing = [];
-        recipe.ingredients.forEach(ings => {ing.push(ings.ingredient.toLowerCase()); recipeTags.push(ings.ingredient.toLowerCase());});
-        app = [];
-        recipe.ustensils.forEach(ust => {app.push(ust); recipeTags.push(ust) ;});
-        app = app.toString().toLowerCase();
-        recipeContent = ing.toString();
-
-        recipeContent +=  "," + recipe.name.toLowerCase() + "," + recipe.appliance.toLowerCase() + "," + app;
-
-       
-
-       
-
-        if( recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
-            displayedRecipe.push(recipe.id);
-            displayedRecipe.forEach( nb => {
-                
-                number = nb-1;
-                id =  "#recipe" + number;
-                document.querySelector(id).classList.remove("recipeHidden");
-                
-            });
-        }
-    }
-    );
-    */
-
-
-
 
 document.querySelector("#inputSearchBar").addEventListener('keyup', mainSearch, false);
 window.addEventListener('click', mainSearch, false);
