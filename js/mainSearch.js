@@ -36,39 +36,49 @@ var mainSearch = function (event) {
     }
 
     else{
-        document.querySelectorAll(".recipe").forEach(recipe => {
-            recipe.classList.remove("recipeHidden");
-        });
+        document.querySelectorAll(".recipe").forEach(recipe => recipe.classList.remove("recipeHidden"));
     }
 };
 
 /** Récupération des donnés des recipes */
 function getRecipeContent(recipe){
-    recipeTags = [];
+    let recipeTags = [];
     recipeTags.push(recipe.appliance);
-    ing = [];
-    recipe.ingredients.forEach(ings => {ing.push(ings.ingredient.toLowerCase()); recipeTags.push(ings.ingredient.toLowerCase());});
-    app = [];
-    recipe.ustensils.forEach(ust => {app.push(ust); recipeTags.push(ust) ;});
+    let ing = [];
+    recipe.ingredients.forEach(ings => {
+                                        ing.push(ings.ingredient.toLowerCase()); 
+                                        recipeTags.push(ings.ingredient.toLowerCase());
+                                        });
+    let app = [];
+    recipe.ustensils.forEach(ust => {
+                                    app.push(ust);
+                                    recipeTags.push(ust);
+                                    });
     app = app.toString().toLowerCase();
-    recipeContent = ing.toString();
+    let recipeContent = ing.toString();
     recipeContent +=  "," + recipe.name.toLowerCase() + "," + recipe.appliance.toLowerCase() + "," + app + recipe.description ;
+    return {
+        ing: ing,
+        app: app,
+        content: recipeContent,
+        recipeTags: recipeTags,
+    }
 }
 
 /** Comparaison de Value au recette   */
 
 function compareToRecipe(value, allTags){
 
-    document.querySelectorAll(".recipe").forEach( recipe => { recipe.classList.add("recipeHidden");});
+    document.querySelectorAll(".recipe").forEach( recipe => recipe.classList.add("recipeHidden"));
 
-        var displayedRecipe = recipes.filter(function(recipe){
+    var displayedRecipe = recipes.filter(function(recipe){
 
-            getRecipeContent(recipe);
-
-            if( recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
-            return recipe;
-            }
-        }
+        let res = getRecipeContent(recipe);
+        let recipeContent = res.ing + res.app + res.content
+        let recipeTags = res.recipeTags
+        if(recipeContent.includes(value) && checker(recipeTags, allTags) === true ) {
+        return recipe;}
+    }
     );
 
     if (displayedRecipe.length == 0){
