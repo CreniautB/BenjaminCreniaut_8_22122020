@@ -35,7 +35,7 @@ var mainSearch = function (event) {
         allTags.push(tagedApp)
     }
 
-    console.log(allTags)
+
     
     /** Lance la fonction si le champ de recherche fait au moins 3 caractere ou si un tag est activé */
 
@@ -56,41 +56,41 @@ function compareToRecipe(value, allTags){
     document.querySelectorAll(".recipe").forEach(recipe => {
     
             /** Récupération des dataSets des Recettes */
-            paraRecipes = recipe.querySelector(".pRecipes").innerHTML.toLowerCase()
-            title = recipe.dataset.title.toLowerCase()
-            app = recipe.dataset.app.toLowerCase()
-            ust = recipe.dataset.ust.toLowerCase()
-            ing = recipe.dataset.ing.toLowerCase()
+            paraRecipes = recipe.querySelector(".pRecipes").innerHTML.toLowerCase();
+            title = recipe.dataset.title.toLowerCase();
+            app = recipe.dataset.app.toLowerCase();
+            ust = recipe.dataset.ust.toLowerCase();
+            ing = recipe.dataset.ing.toLowerCase();
 
             /** Ajout des données a une liste pour la comparer */
-            recipeTags = []
-            allRecipesTags = app+"," + ust+ "," + ing
-            recipeTags.push(allRecipesTags)
-            chaine = recipeTags.join(",")
-            recipeArray = chaine.split(",")
+            recipeTags = [];
+            allRecipesTags = app+"," + ust+ "," + ing;
+            recipeTags.push(allRecipesTags);
+            chaine = recipeTags.join(",");
+            recipeArray = chaine.split(",");
 
             /** Si aucun tag attaché */
             if (allTags.every(isEmpty) === true){
 
                 if (title.includes(value) || paraRecipes.includes(value) || ing.includes(value) || app.includes(value) || ust.includes(value)){}
                 else{
-                    recipe.classList.add("recipeHidden")
+                    recipe.classList.add("recipeHidden");
                 }
             }
            
             /** Si au moins un tag est attaché */
             else if ( allTags.every(isEmpty) === false )
             {
-                recipe.classList.remove("recipeHidden")
+                recipe.classList.remove("recipeHidden");
 
                 /** Si la barre de recherche contiens au moins 3 caracteres */
                 if ( value.length >= 3 )
                 {
                     if ( checker(recipeArray, allTags) === true  && (title.includes(value) || paraRecipes.includes(value) || ing.includes(value) || app.includes(value) || ust.includes(value))){
-                        recipe.classList.remove("recipeHidden")
+                        recipe.classList.remove("recipeHidden");
                     }
                     else{
-                        recipe.classList.add("recipeHidden")
+                        recipe.classList.add("recipeHidden");
                     }
                 }
 
@@ -98,18 +98,18 @@ function compareToRecipe(value, allTags){
                 if (value.length < 3 ){
                    
                     if ( checker(recipeArray, allTags) === true ){
-                        recipe.classList.remove("recipeHidden")
+                        recipe.classList.remove("recipeHidden");
                     }
                     else{
-                        recipe.classList.add("recipeHidden")
+                        recipe.classList.add("recipeHidden");
                     }
                 }
             }
             else{
-                recipe.classList.remove("recipeHidden")
+                recipe.classList.remove("recipeHidden");
             }
         }
-    )}
+    );}
 
 
 
